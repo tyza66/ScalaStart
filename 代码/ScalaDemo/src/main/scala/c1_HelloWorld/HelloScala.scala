@@ -7,8 +7,9 @@ package c1_HelloWorld
  **/
 object HelloScala { //object中所有的属性和方法默认都是静态的
   //scala中没有静态的关键字 使用伴生对象表示静态的属性和方法
-  def main(args: Array[String]): Unit = {
-    System.out.println("Hello,World!")
+  def main(args: Array[String]): Unit = {//这里面没有void 我们用Unit表示没有返回值
+    System.out.println("Hello!")
+    println("Hello,World!")
   }
 }
 
@@ -18,3 +19,5 @@ object HelloScala { //object中所有的属性和方法默认都是静态的
 class HelloScala{
 
 }
+
+//使用scala代码的时候 会先编译成class文件
