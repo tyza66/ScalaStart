@@ -1,4 +1,4 @@
-package c1_HelloWorld
+package c1_helloWorld
 
 /**
  * Author: tyza66
