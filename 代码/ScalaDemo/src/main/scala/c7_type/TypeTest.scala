@@ -16,19 +16,31 @@ object TypeTest {
       10
     }
     //代码块没有返回值的话还要接收的值就得用的Unit
-    val unit:Unit = {
+    val unit: Unit = {
       10
       println("giao2")
     }
     //Byte的范围是-128到127
-    var i1 :Byte = 127
-    var i2 :Byte = (126+1) //这样编译的时候不会报错 因为是常量 编译器自动就识别了
-    var i3 :Int = 1
+    var i1: Byte = 127
+    var i2: Byte = (126 + 1) //这样编译的时候不会报错 因为是常量 编译器自动就识别了
+    var i3: Int = 1
     //var i4 :Byte = (126+i3) 这样编译的时候就会报错 因为编译的时候编译器根本不知道i1的值
     //2200000000 直接写的数值默认会被识别成int 而不是long long需要在后面加上L、
-    val l :Long = 2200000000L
+    val l: Long = 2200000000L
     //如果数值运算超过了Int 需要提前自己改成Long
-    val i5 :Int = 1500000000 + 1500000000
+    val i5: Int = 1500000000 + 1500000000
     println(i5) //返回的值是有下标越界后剩下原来那些位的值 是错误的
+
+    //浮点数默认是double 读了
+    val d1: Double = 3.14
+    val f1: Float = 3.14f
+
+    //字符两种定义方法 单引号和数值 最大值65535
+    val c1: Char = 'a'
+    val c2: Char = 97
+    val c3: Char = '\t'
+
+    //布尔类型
+    val bol: Boolean = true
   }
 }
