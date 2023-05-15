@@ -1,4 +1,4 @@
-package c7_tyle
+package c7_type
 
 /**
  * Author: tyza66
