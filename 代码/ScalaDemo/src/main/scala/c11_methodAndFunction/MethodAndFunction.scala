@@ -78,6 +78,12 @@ object MethodAndFunction {
     //后面的类型省略后 如果发现后面只有一个参数 那么小括号可以被省略 但是没有参数或者参数数量超过1了的情况下不可以省略 因为()表示的是形参列表
     val function4: String => String = name => name + "睡觉"
     //如果函数不是只有一行 那么大括号不能省略
+    val function5: String => String = name => {
+      println("giaos")
+      name + "睡觉"
+    }
+    //如果参数只出现一次则参数省略且后面的参数可以用_来代替
+    val function6: String => String = _ + "睡觉"
   }
 }
 
