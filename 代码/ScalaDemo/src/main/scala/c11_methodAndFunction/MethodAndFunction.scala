@@ -111,6 +111,20 @@ object MethodAndFunction {
     * 3.函数可以做为函数返回值进行返回
     * */
 
+    //函数作为值传递
+    def function12(s: String): String = {
+      println("giao")
+      s
+    }
+    val stringToString: String => String = function12 _
+    stringToString("xx")
+    //函数可以作为参数进行传递
+    val function8: (Int, Int) => Int = (x: Int, y: Int) => x + y
+    def function13(x: Int, y: Int,f: (Int, Int) => Int): Int = {
+      f(x,y)
+    }
+    //这样可以调用 并且这个参数可以是匿名函数
+    print(function13(1,2,function8))
   }
 }
 
