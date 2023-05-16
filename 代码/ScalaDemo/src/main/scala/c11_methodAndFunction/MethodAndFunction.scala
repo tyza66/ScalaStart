@@ -71,6 +71,13 @@ object MethodAndFunction {
     //如果不关心名称 只关心逻辑处理，那么函数名和def可以省略 匿名函数
     val function: (String, Int) => String = (name: String, age: Int) => name + "睡觉"
     //匿名函数还可以继续化简
+    //参数类型可以省略 可以通过形参推断出来
+    val function1 = (name: String, age: Int) => name + "睡觉"
+    //通过前面推断后面也行 一般而言都是化简后面的部分
+    val function3: (String, Int) => String = (name, age) => name + "睡觉"
+    //后面的类型省略后 如果发现后面只有一个参数 那么小括号可以被省略 但是没有参数或者参数数量超过1了的情况下不可以省略 因为()表示的是形参列表
+    val function4: String => String = name => name + "睡觉"
+    //如果函数不是只有一行 那么大括号不能省略
   }
 }
 
