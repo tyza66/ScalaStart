@@ -52,7 +52,7 @@ object TypeTest {
     }
     //Unit的内容是可以被打印的 打印出来就是一个空的小括号 原因是Unit的java实现类中有一个toString方法
     println(unit1)
-    //Unit的特殊用法 如果返回值被声明成了Unit类型 那么就相当于不要返回值 只会得到一个空的小括号
+    //Unit的特殊用法 如果返回值被手动声明成了Unit类型 那么就相当于不要返回值 只会得到一个空的小括号
     val ii3: Unit = {
       "hello"
       10
