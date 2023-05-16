@@ -42,5 +42,20 @@ object TypeTest {
 
     //布尔类型
     val bol: Boolean = true
+
+    //scala中的三种空
+    //Unit 输出语句 赋值语句 的返回值是unit 来说明他们是没有返回值的
+    val unit1: Unit = {
+      "hello"
+      10
+      println("1")
+    }
+    //Unit的内容是可以被打印的 打印出来就是一个空的小括号 原因是Unit的java实现类中有一个toString方法
+    println(unit1)
+    //Unit的特殊用法 如果返回值被生命成了Unit类型 那么就相当于不要返回值 只会得到一个空的小括号
+    val ii3: Unit = {
+      "hello"
+      10
+    }
   }
 }
