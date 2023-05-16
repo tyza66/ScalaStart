@@ -93,15 +93,23 @@ object MethodAndFunction {
 
     //简化的函数式编程实现 f(x) = 2x + 4y
     def sum(x: Int, y: Int) = 2 * x + 4 * y
+
     //继续化简成匿名函数
     val function2: (Int, Int) => Int = (x, y) => 2 * x + 4 * y
     //所有参数只出现一次 并且按照顺序出现 就可以用_
     val function7: (Int, Int) => Int = 2 * _ + 4 * _
-    println(function7(1,1))
+    println(function7(1, 1))
     //如果化简完之后只剩下一个_则不能化简 就是说最终的表达式只是一个_的时候是不可以的 但是可以取巧 强行等于一个空串
     val function10: String => String = _ + "" //取巧的方法 但是不推荐
     val function11: String => String = s => s
     //嵌套的时候也不能化简
+
+    //高阶函数的三种用法
+    /*
+    * 1.函数可以作为值进行传递
+    * 2.函数可以作为参数进行传递
+    * 3.函数可以做为函数返回值进行返回
+    * */
 
   }
 }
