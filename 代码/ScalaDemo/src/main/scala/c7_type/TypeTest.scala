@@ -61,7 +61,7 @@ object TypeTest {
     var s1: String = null
     //当前引用对象为null并且调用了他的方法就会报空指针异常 运行时回报栈跟踪异常
     //我们可以先判断是否为空之后再进行调用或修改 但是这样可能会造成变量被遗失 需要记住这个问题并且处理
-    if (s1 == null) {
+    if (s1 != null) {
       val strings: Array[String] = s1.split(" ")
       println(strings)
     } else {
