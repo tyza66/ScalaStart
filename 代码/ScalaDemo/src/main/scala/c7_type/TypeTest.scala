@@ -57,5 +57,25 @@ object TypeTest {
       "hello"
       10
     }
+    //任意的引用类型都可以使用null表示空指针
+    var s1: String = null
+    //当前引用对象为null并且调用了他的方法就会报空指针异常 运行时回报栈跟踪异常
+    //我们可以先判断是否为空之后再进行调用或修改 但是这样可能会造成变量被遗失 需要记住这个问题并且处理
+    if (s1 == null) {
+      val strings: Array[String] = s1.split(" ")
+      println(strings)
+    } else {
+      s1 = " "
+    }
+    //anyVal是不能使用null表示的
+
+    //nothing
+    //默认会以代码段的最后一行作为返回值进行返回 但是不是所有的代码段都能执行到最后一行
+    val value: Nothing = {
+      println("giao")
+      throw new RuntimeException()
+    }
+    //nothing存在的意义：nothing是scala中所有数据类型的子类
+    //所以可以用任意类型来表示可能抛异常的代码块
   }
 }
