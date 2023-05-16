@@ -45,6 +45,32 @@ object MethodAndFunction {
       println(s"any ${names} ${age}")
     }
     sayAny2(age = 10)
+
+    //通常情况下return可以省略 但是有一种特殊的情况
+    //就是里面有分支结构的时候
+    def sayGiao(name: String):String = {
+      if(name==null){
+        return "giao"
+      }
+      name
+    }
+    println(sayGiao(null))
+
+    //只有一行代码的时候才可以省略花括号 否则 只会读取到第一行代码
+
+    //如果返回值类型可以推断出来 那么可以省略：后面的返回值类型 比如输入string返回string
+    def sayGiao2(name: String) = name
+
+    //如果有return 那么就不能省略返回值类型
+
+    //如果期望没有返回值 那么可以省略掉等号 但是等号和大括号不能同时被省略
+    def dadbgsaidgoi(name: String){
+      println("giao")
+    }
+    dadbgsaidgoi("h")
+    //如果不关心名称 只关心逻辑处理，那么函数名和def可以省略 匿名函数
+    val function: (String, Int) => String = (name: String, age: Int) => name + "睡觉"
+    //匿名函数还可以继续化简
   }
 }
 
