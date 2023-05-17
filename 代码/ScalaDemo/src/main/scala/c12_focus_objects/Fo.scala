@@ -1,5 +1,6 @@
 package c12_focus_objects
 
+import scala.beans.BeanProperty
 import scala.collection.mutable
 
 /**
@@ -34,6 +35,8 @@ object Fo {
     //大括号中用,分隔 并且可以单独给一些类改名 比如 import scala.util.control.{Breaks => Giao,_} 表示引入上层包中的所有成员并把Break更名为Giao
     //同理 将单独的类取成下划线 就可以屏蔽单个类 import scala.util.control.{Breaks => _,_}
     //new _root_.java.util.HashMap 引入java的绝对路径
+    var person0 = new Person02
+    person0.setAge(96) //如果是val就没有set方法 只有get方法
   }
 }
 
@@ -70,10 +73,14 @@ package object com{
   }
 }
 //scala中一个文件里面可以写多个public类 scala里面的类默认就是public的
+
 class Person02{
+  @BeanProperty
   val name:String = "John"
+  @BeanProperty
   var age:Int = 10
   //java中的getter和setter封装的意义就在于权限管理的细致 读写权限的分离
   //在这里直接就用val和var实现了读写权限的分离
   //scala里面的public其实底层就是private通过get方法set方法进行的操作
+  //为了和一些java的框架进行兼容 可以使用@BeanProperty 声明有bean的特征 自动声明对应的get和set
 }
