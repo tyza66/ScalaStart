@@ -208,6 +208,36 @@ object MethodAndFunction {
     println(fun32(5))
 
     //控制抽象
+    def sayHiHi(name: String): Unit = {
+      println(s"hi hi $name")
+    }
+    //值调用
+    sayHiHi({
+      println("giao1")
+      "giao2"
+    })
+
+    //名调用 不是将代码块的结果作为参数传入函数中 而是将代码块整个传入到函数中 使用一次代码块就会计算一次、运行一次
+    def sayHiHi1(name: => String): Unit = {
+      println("giao3")
+      println(s"hi hi $name")
+    }
+
+    sayHiHi1({
+      println("giao1")
+      "giao2"
+    })
+
+    //惰性函数 不会立刻计算 会在需要用到这个值的时候再进行计算
+    def xxxx(x: Int, y: Int): Int = {
+      println("a")
+      x + y
+    }
+
+    lazy val lazz = xxxx(1, 3)
+
+    println("b")
+    println("xxxx " + lazz)
   }
 }
 
