@@ -1,5 +1,7 @@
 package c12_focus_objects
 
+import scala.collection.mutable
+
 /**
  * Author: tyza66
  * Date: 2023/05/17 14:13
@@ -19,7 +21,10 @@ object Fo {
     println(packagename)
     sayHi("giao")
 
-    
+    //全局导包在最上面 局部导包只有在它以下可以使用
+    import scala.collection.mutable.HashMap
+
+    var  h:HashMap[String,String] = new mutable.HashMap[String,String]
   }
 }
 
