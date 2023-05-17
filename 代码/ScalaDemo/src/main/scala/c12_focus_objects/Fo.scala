@@ -31,6 +31,9 @@ object Fo {
     //取别名在大货号中用=>  导入多个直接在大括号中写多个 要屏蔽某个就给他起别名为下划线
     //直接导入类和直接导入方法是不一样的
     import scala.util.control.Breaks._ //这样是直接导入静态方法 可以直接通过静态方法名调用静态方法
+    //大括号中用,分隔 并且可以单独给一些类改名 比如 import scala.util.control.{Breaks => Giao,_} 表示引入上层包中的所有成员并把Break更名为Giao
+    //同理 将单独的类取成下划线 就可以屏蔽单个类 import scala.util.control.{Breaks => _,_}
+    //new _root_.java.util.HashMap 引入java的绝对路径
   }
 }
 
