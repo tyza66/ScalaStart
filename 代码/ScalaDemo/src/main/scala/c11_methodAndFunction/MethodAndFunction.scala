@@ -1,6 +1,7 @@
 package c11_methodAndFunction
 
 import scala.annotation.tailrec
+import scala.language.postfixOps
 
 /**
  * Author: tyza66
@@ -238,6 +239,19 @@ object MethodAndFunction {
 
     println("b")
     println("xxxx " + lazz)
+
+    //用两个名调用就可以实现一个自己的while循环了
+    def myWhile(b: =>scala.Boolean)(op: =>Unit):Unit ={
+      if(b){
+        op
+        myWhile(b)(op)
+      }
+    }
+    var i96 = 0
+    myWhile(i96<5){
+      println(i96)
+      i96 += 1
+    }
   }
 }
 
