@@ -18,6 +18,8 @@ object Fo {
     //在scala里面包也是对象 也可以有属性和方法
     println(packagename)
     sayHi("giao")
+
+    
   }
 }
 
@@ -45,6 +47,7 @@ package com{
   }
 }
 //代码中中定义的包 包对象不可以写在文件中了 要写在这里
+//如果出现覆盖的情况 调用内层的
 package object com{
   val  packagename = "com"
 
