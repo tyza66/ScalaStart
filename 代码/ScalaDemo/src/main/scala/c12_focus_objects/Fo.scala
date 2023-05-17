@@ -23,8 +23,13 @@ object Fo {
 
     //全局导包在最上面 局部导包只有在它以下可以使用
     import scala.collection.mutable.HashMap
-
     var  h:HashMap[String,String] = new mutable.HashMap[String,String]
+
+    //scala里使用_作为通配符
+    import scala.collection.mutable._
+    var h2:HashSet[String] = new HashSet[String]
+
+
   }
 }
 
