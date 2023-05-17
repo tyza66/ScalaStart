@@ -69,3 +69,11 @@ package object com{
     println(s"Hi ${name}")
   }
 }
+//scala中一个文件里面可以写多个public类 scala里面的类默认就是public的
+class Person02{
+  val name:String = "John"
+  var age:Int = 10
+  //java中的getter和setter封装的意义就在于权限管理的细致 读写权限的分离
+  //在这里直接就用val和var实现了读写权限的分离
+  //scala里面的public其实底层就是private通过get方法set方法进行的操作
+}
