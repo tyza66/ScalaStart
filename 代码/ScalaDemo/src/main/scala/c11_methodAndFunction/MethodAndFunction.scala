@@ -1,5 +1,7 @@
 package c11_methodAndFunction
 
+import scala.annotation.tailrec
+
 /**
  * Author: tyza66
  * Date: 2023/05/16 12:41
@@ -160,24 +162,52 @@ object MethodAndFunction {
     //其实并不推荐对高阶函数进行过分的化简 这样会大大降低代码的可读性 推荐写成定义函数的形式
 
     //函数柯里化写法 柯里化就是把一个形参列表的多个参数打散成多个形参列表 柯里化的底层就是用函数嵌套实现的 作者帮我们实现完了
-    def fun9(c:Char)(s:String)(i:Int): Boolean ={
-      println(""+c+s+i)
+    def fun9(c: Char)(s: String)(i: Int): Boolean = {
+      println("" + c + s + i)
       false
     }
+
     fun9('a')("giao")(96)
 
     //闭包 一个函数访问到了它的外部变量的值 那么这个函数所属的环境称作闭包
     //将外部的变量打包成一个常量 放在内部函数中 这样就可以减少依赖关系 可以减少压栈
     //定义一个相加函数
-    def xxSum(x:Int,y:Int):Int = x + y
+    def xxSum(x: Int, y: Int): Int = x + y
+
     //我们频繁使用这个函数的时候就很难受 于是我们可以写一个确定的逻辑 比如我们都想加10 就可以在逻辑中写死10 不用传入参数了
     //但是这两种模式中 要么泛用性更强 要么适用性更强
     //通过闭包可以实现这样一种平衡
-    def xxSumxx(x:Int) = {
-      def sumY(y:Int): Int = x + y
+    def xxSumxx(x: Int) = {
+      def sumY(y: Int): Int = x + y
+
       sumY _
     }
     //这样就可以先产生一个初始化完成的内层函数
+
+    //递归 递归慢
+    def fun31(n: Int): Long = {
+      if (n == 1) {
+        1
+      } else {
+        fun31(n - 1) * n
+      }
+    }
+
+    println(fun31(5))
+
+    //尾递归优化 最后递归调用的函数最后一行只有自身的函数 没有其他值
+    @tailrec //这个注解可以检查是不是尾递归 不是的话就会报错
+    def fun32(n: Int, res: Long = 1): Long = {
+      if (n == 1) {
+        res
+      } else {
+        fun32(n - 1, res * n)
+      }
+    }
+
+    println(fun32(5))
+
+    //控制抽象
   }
 }
 
