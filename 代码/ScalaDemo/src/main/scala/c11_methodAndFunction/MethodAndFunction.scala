@@ -116,15 +116,68 @@ object MethodAndFunction {
       println("giao")
       s
     }
+
     val stringToString: String => String = function12 _
     stringToString("xx")
     //函数可以作为参数进行传递
     val function8: (Int, Int) => Int = (x: Int, y: Int) => x + y
-    def function13(x: Int, y: Int,f: (Int, Int) => Int): Int = {
-      f(x,y)
+
+    def function13(x: Int, y: Int, f: (Int, Int) => Int): Int = {
+      f(x, y)
     }
     //这样可以调用 并且这个参数可以是匿名函数
-    print(function13(1,2,function8))
+    println(function13(1, 2, function8))
+    //传递的内容可以是直接传递一个函数表达式
+    println(function13(1, 2, _ + _))
+
+    //函数可以作为函数返回值返回
+    //如果我们想实现这样一个场景：先调用这个函数并且向里面传递一个参数 处理完这个逻辑之后还想继续向这个函数中传递参数
+    //所以我们需要获得第一次调用返回的function再进行第二次的处理
+    def sumXY(x: Int) = {
+      def sumY(y: Int): Int = {
+        x + y
+      }
+      //需要将内部定义的函数作为结果返回
+      sumY _
+    }
+
+    var func = sumXY(1)
+    println(func(5))
+    println(sumXY(9)(6)) //这样是两级的调用写在了一起
+    //上面那个函数还可以继续化简 这里可以选择任意方向的返回值推断
+    def sumXY2(x: Int) = {
+      def sumY(y: Int) = x + y
+
+      sumY _
+    }
+
+    //继续化简的话 还可以直接写一个匿名函数返回去
+    def sumXY3(x: Int): Int => Int = y => x + y
+
+    //继续化简 还可以用下划线代表匿名函数中的变量
+    def sumXY4(x: Int): Int => Int = x + _
+
+    //其实并不推荐对高阶函数进行过分的化简 这样会大大降低代码的可读性 推荐写成定义函数的形式
+
+    //函数柯里化写法 柯里化就是把一个形参列表的多个参数打散成多个形参列表 柯里化的底层就是用函数嵌套实现的 作者帮我们实现完了
+    def fun9(c:Char)(s:String)(i:Int): Boolean ={
+      println(""+c+s+i)
+      false
+    }
+    fun9('a')("giao")(96)
+
+    //闭包 一个函数访问到了它的外部变量的值 那么这个函数所属的环境称作闭包
+    //将外部的变量打包成一个常量 放在内部函数中 这样就可以减少依赖关系 可以减少压栈
+    //定义一个相加函数
+    def xxSum(x:Int,y:Int):Int = x + y
+    //我们频繁使用这个函数的时候就很难受 于是我们可以写一个确定的逻辑 比如我们都想加10 就可以在逻辑中写死10 不用传入参数了
+    //但是这两种模式中 要么泛用性更强 要么适用性更强
+    //通过闭包可以实现这样一种平衡
+    def xxSumxx(x:Int) = {
+      def sumY(y:Int): Int = x + y
+      sumY _
+    }
+    //这样就可以先产生一个初始化完成的内层函数
   }
 }
 
