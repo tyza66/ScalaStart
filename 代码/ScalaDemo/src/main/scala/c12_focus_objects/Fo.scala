@@ -28,8 +28,9 @@ object Fo {
     //scala里使用_作为通配符
     import scala.collection.mutable._
     var h2:HashSet[String] = new HashSet[String]
-
-
+    //取别名在大货号中用=>  导入多个直接在大括号中写多个 要屏蔽某个就给他起别名为下划线
+    //直接导入类和直接导入方法是不一样的
+    import scala.util.control.Breaks._ //这样是直接导入静态方法 可以直接通过静态方法名调用静态方法
   }
 }
 
