@@ -37,6 +37,10 @@ object Fo {
     //new _root_.java.util.HashMap 引入java的绝对路径
     var person0 = new Person02
     person0.setAge(96) //如果是val就没有set方法 只有get方法
+
+    //权限
+    //scala中protected受保护权限比java中更严格 同类子类可以访问 但是同包下不能访问
+    //private[包名] 增加包访问权限 包名下的其他文件也可以使用
   }
 }
 
