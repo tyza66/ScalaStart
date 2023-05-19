@@ -44,5 +44,10 @@ object Collection4 {
     println(stringToInt)
     //修改整的活和put是一样的
     stringToInt.update("giao", 3)
+    //查
+    stringToInt.getOrElse("giao",4)
+
+    //特殊用法 只有key肯定存在的时候才能这样用
+    stringToInt("giao")
   }
 }
