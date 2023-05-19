@@ -1,5 +1,7 @@
 package c13_collection
 
+import scala.collection.mutable.ListBuffer
+
 /**
  * Author: tyza66
  * Date: 2023/05/19 8:34
@@ -28,5 +30,12 @@ object Collection2 {
     val list97 = 1 :: 2 :: 3 :: List()
 
     //可变集合ListBuffer
+    val ints1 = new ListBuffer[Int]
+    val ints5: ListBuffer[Int] = ListBuffer(1, 2, 3, 4)
+    ints1.append(1)
+    println(ints1)
+    ints1.remove(0)
+    ints5.update(0,800)
+    println(ints5)
   }
 }
