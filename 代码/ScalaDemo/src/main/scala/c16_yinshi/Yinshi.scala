@@ -16,6 +16,7 @@ object Yinshi {
     val i1 = 10
     val i:Int = i1.myMax(20)
     println(i)
+    //如果隐式方法和原来的类中的方法冲突了 那就调用原来的 因为只有第一次编译失败的时候才会调用隐式转换的方法
   }
 }
 
